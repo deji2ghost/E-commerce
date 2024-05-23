@@ -1,4 +1,3 @@
-
 import {category} from '../Data/data.ts'
 
 export const Arrival = () => {

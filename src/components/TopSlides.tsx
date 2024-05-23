@@ -1,4 +1,3 @@
-// import React from "react";
 import Slider from "react-slick";
 import { sliders } from '../Data/data.js'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
