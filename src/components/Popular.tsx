@@ -15,17 +15,17 @@ export const Popular = () => {
     slidesToScroll: 1,
   };
 
-  const next = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
+  // const next = () => {
+  //   if (sliderRef.current) {
+  //     sliderRef.current.slickNext();
+  //   }
+  // };
 
-  const previous = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
+  // const previous = () => {
+  //   if (sliderRef.current) {
+  //     sliderRef.current.slickPrev();
+  //   }
+  // };
 
   return (
     <div className='bg-gray-400 grid grid-cols-2'>

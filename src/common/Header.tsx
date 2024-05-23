@@ -1,4 +1,4 @@
-import { faBars, faHeart, faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHeart, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  { useState } from 'react'
 import { Cart } from '../components/Cart'

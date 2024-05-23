@@ -1,6 +1,6 @@
 
 type FilteredProduct ={
-    filteredProduct: () => void
+    filteredProduct: any
 }
 
 export const FilterHeader = ({filteredProduct}: FilteredProduct) => {

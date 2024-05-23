@@ -28,15 +28,15 @@ type Product = {
 }
 
 export const Newitems = () => {
-  const cartItems = useSelector(state => state.data)
+  const cartItems = useSelector((state: any) => state.data)
   const State = useSelector(state => state)
   const dispatch = useDispatch()
   const qty = 1
 
-  // console.log(products, cartItems)
+  console.log(products, cartItems)
 
   const handleCart = (product: Product) => {
-    const totalAmount = qty * product.price
+    const totalAmount = qty * Number(product.price)
     const productItems = {...product, totalAmount, quantity: qty}
     dispatch(addToCart(productItems))
   }

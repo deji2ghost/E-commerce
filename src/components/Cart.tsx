@@ -14,7 +14,8 @@ type Items={
 }
 
 export const Cart = () => {
-  const cartItems = useSelector((state ) => state.data)
+  const cartItems = useSelector((state :any) => state.data)
+  console.log(cartItems.length)
   const dispatch = useDispatch()
   const [ showCart, setShowCart ] = useState(false)
 
@@ -37,11 +38,14 @@ export const Cart = () => {
   }
   return (
     <div>
-      <FontAwesomeIcon 
-        icon={faShoppingCart} 
-        className='hover:text-red-800 cursor-pointer ease-out duration-300 text-[27px]'
-        onClick={handleCart}
-      />
+      <div className='relative'>
+        <FontAwesomeIcon 
+          icon={faShoppingCart} 
+          className='hover:text-red-800 cursor-pointer ease-out duration-300 text-[27px]'
+          onClick={handleCart}
+        />
+        <p className='absolute -top-4 -right-2 bg-red-800 text-slate-100 rounded-full w-[18px] text-center font-mono font-extrabold'>{cartItems.length}</p>
+      </div>
       <div className={`${showCart ? 'visible' : 'hidden'} absolute overflow-y-scroll bg-white top-[70px] h-[550px] px-3 right-0 w-[50%] md:w-[30%] `}>
         <div className='flex items-center justify-between py-3 border-b-2'>
           <h1>Shopping Cart</h1>
