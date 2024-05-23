@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css"
 
 export const TopSlides = () => {
 
-    const sliderRef = useRef(null);
+    const sliderRef = useRef<any>(null);
 
     console.log(sliders)
 
