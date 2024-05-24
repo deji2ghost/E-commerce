@@ -27,10 +27,10 @@ const storeLocalStorage1 = (totalAmount: Number) => {
 const storeLocalStorage2 = (totalItems: Number) => {
   localStorage.setItem('totalItems', JSON.stringify(totalItems))
 }
-
-const dataItems = localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')) : []
-const dataTotalAmount = localStorage.getItem('totalAmount') !== null ? JSON.parse(localStorage.getItem('totalAmount')) : 0
-const dataTotalItems = localStorage.getItem('totalItems') !== null ? JSON.parse(localStorage.getItem('totalItems')) : 0
+// nullish operator..we are telling typescript that the value won't return null..i guess..check sha
+const dataItems = localStorage.getItem('cartItems') !== null ? JSON.parse(localStorage.getItem('cartItems')!) : []
+const dataTotalAmount = localStorage.getItem('totalAmount') !== null ? JSON.parse(localStorage.getItem('totalAmount')!) : 0
+const dataTotalItems = localStorage.getItem('totalItems') !== null ? JSON.parse(localStorage.getItem('totalItems')!) : 0
 
 const initialState:InitialState = {
     data: dataItems,
