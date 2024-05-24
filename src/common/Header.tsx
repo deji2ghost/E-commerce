@@ -1,10 +1,12 @@
-import { faBars, faHeart, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faHeart, faShoppingCart, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  { useState } from 'react'
-import { Cart } from '../components/Cart'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Header = () => {
     const [ openNav, setOpenNav ] = useState(false)
+    const cartItems = useSelector((state :any) => state.totalItems)
 
     const handleNav = () => {
         setOpenNav(!openNav)
@@ -26,12 +28,12 @@ export const Header = () => {
                 </h1>
             </div>
             <ul className='hidden font-semibold sm:flex items-center gap-5'>
-                <li className='cursor-pointer hover:text-red-600'>Home</li>
-                <li className='cursor-pointer hover:text-red-600'>Features</li>
-                <li className='cursor-pointer hover:text-red-600'>Shop</li>
-                <li className='cursor-pointer hover:text-red-600'>Pages</li>
-                <li className='cursor-pointer hover:text-red-600'>Blog</li>
-                <li className='cursor-pointer hover:text-red-600'>Contact</li>
+                <Link to='/' className='cursor-pointer hover:text-red-600'>Home</Link>
+                <Link to='' className='cursor-pointer hover:text-red-600'>Features</Link>
+                <Link to='' className='cursor-pointer hover:text-red-600'>Shop</Link>
+                <Link to='' className='cursor-pointer hover:text-red-600'>Pages</Link>
+                <Link to='' className='cursor-pointer hover:text-red-600'>Blog</Link>
+                <Link to='' className='cursor-pointer hover:text-red-600'>Contact</Link>
             </ul>
             {/* <div 
                 className={`${openNav ? 'fixed inset-0' : 'hidden'} duration-300  bg-slate-950 bg-opacity-10 sm:hidden`}
@@ -46,19 +48,25 @@ export const Header = () => {
                     icon={faTimes} 
                     onClick={handleNav}
                 />
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Home</li>
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Features</li>
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Shop</li>
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Pages</li>
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Blog</li>
-                <li className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Contact</li>
+                <Link to='/' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Home</Link>
+                <Link to='' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Features</Link>
+                <Link to='' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Shop</Link>
+                <Link to='' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Pages</Link>
+                <Link to='' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Blog</Link>
+                <Link to='' className='cursor-pointer hover:bg-red-800 w-full text-center py-2 transition-all ease-in-out duration-300 font-semibold hover:text-black'>Contact</Link>
             </ul>
             <div className='flex gap-2'>
                 <FontAwesomeIcon 
                     icon={faHeart} 
                     className='hover:text-red-800 cursor-pointer ease-out duration-300 text-[27px]'
                 />
-                <Cart />
+                <Link to='/cart' className='relative'>
+                    <FontAwesomeIcon 
+                    icon={faShoppingCart} 
+                    className='hover:text-red-800 cursor-pointer ease-out duration-300 text-[27px]'
+                    />
+                    <p className='absolute -top-4 -right-2 bg-red-800 text-slate-100 rounded-full w-[18px] text-center font-mono font-extrabold'>{cartItems}</p>
+                </Link>
             </div>
             
         </div>

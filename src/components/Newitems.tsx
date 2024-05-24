@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBalanceScale, faChevronLeft, faChevronRight, faEye, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../Redux/CartSlice.ts';
-import { useEffect } from 'react';
+import { addToCart, totalItemsCart } from '../Redux/CartSlice.ts';
+
 
 const NextArrow = (props: any) => (
   <div {...props} className="absolute top-1/2 -translate-y-1/2 right-2">
@@ -28,22 +28,17 @@ type Product = {
 }
 
 export const Newitems = () => {
-  const cartItems = useSelector((state: any) => state.data)
   const State = useSelector(state => state)
+  console.log(State)
   const dispatch = useDispatch()
   const qty = 1
-
-  console.log(products, cartItems)
 
   const handleCart = (product: Product) => {
     const totalAmount = qty * Number(product.price)
     const productItems = {...product, totalAmount, quantity: qty}
     dispatch(addToCart(productItems))
+    dispatch(totalItemsCart())
   }
-
-  useEffect(() => {
-    console.log(State)
-  }, [handleCart])
 
   var settings = {
     dots: false,

@@ -8,16 +8,34 @@ export const Footer = () => {
     console.log(footer)
   return (
     <div className='py-4 md:py-8 flex flex-col-reverse md:flex-row justify-between px-3 bg-gray-400'>
-        <div className='flex justify-center gap-10 uppercase w-full'>
+        <div className='grid grid-cols-2 gap-2 uppercase mt-5 md:hidden'>
+            {
+                footer.map(item => {
+                return(
+                    <div key={item.id} >
+                        <h1 className='font-bold text-[24px] cursor-pointer'>{item.header}</h1>
+                        {
+                            item.title.map((itemTitle, subIndex) => {
+                                return(
+                                    <p key={subIndex} className='cursor-pointer font-normal font-mono'>{itemTitle.subtitle}</p>
+                                )
+                            })
+                        }
+                    </div>
+                )}
+                )
+            }
+        </div>
+        <div className='hidden md:flex gap-14 uppercase w-[80%] md:w-full'>
             {
                 footer.map(item => {
                     return(
-                        <div key={item.id}>
-                            <h1 className='font-bold text-[24px]'>{item.header}</h1>
+                        <div key={item.id} >
+                            <h1 className='font-bold text-[24px] cursor-pointer'>{item.header}</h1>
                             {
                                 item.title.map((itemTitle, subIndex) => {
                                     return(
-                                        <p key={subIndex} className='font-normal font-mono'>{itemTitle.subtitle}</p>
+                                        <p key={subIndex} className='cursor-pointer font-normal font-mono'>{itemTitle.subtitle}</p>
                                     )
                                 })
                             }
@@ -26,7 +44,7 @@ export const Footer = () => {
                 })
             }
         </div>
-        <div className='bg-gray-100 p-3 md:p-6 rounded-md shadow-lg flex flex-col gap-5'>
+        <div className='bg-gray-100 p-3 md:p-6 rounded-md shadow-lg flex flex-col gap-5 md:w-[60%]'>
             <h1 className='font-bold text-[24px] uppercase'>Sign Up For NewsLetter</h1>
             <div>
                 <p>Don't miss out on exciting promotions and latest shopping news</p>

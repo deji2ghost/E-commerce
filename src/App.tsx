@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes, } from 'react-router-dom'
 import { Home } from './Pages/Home'
 import { Header } from './common/Header'
 import { Footer } from './common/Footer'
+import { Cart } from './components/Cart'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
       <Footer />
       <div className='bg-black text-white px-2 font-serif py-2'>
